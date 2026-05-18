@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Brazil vs Haiti Ticket Tracker</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main>
+    <header>
+      <div>
+        <p class="eyebrow">Brazil World Cup ticket monitor</p>
+        <h1>Brazil vs Haiti prices</h1>
+        <p id="checked" class="muted">Loading latest cron snapshot…</p>
+      </div>
+      <a class="button" href="../data/state.json">Raw JSON</a>
+    </header>
+
+    <section class="cards" id="cards"></section>
+
+    <section class="panel chart-panel">
+      <div class="panel-head">
+        <div>
+          <h2>Price timeline</h2>
+          <p class="muted small">Filter sources to compare historical lowest prices from each monitor run.</p>
+        </div>
+        <div class="filters" id="sourceFilters"></div>
+      </div>
+      <canvas id="timelineChart" height="320"></canvas>
+      <div id="chartLegend" class="legend"></div>
+    </section>
+
+    <section class="panel">
+      <h2>Tracked Brazil FIFA Collect games</h2>
+      <div class="table-wrap"><table id="games"></table></div>
+    </section>
+
+    <section class="panel">
+      <h2>Recent runs</h2>
+      <div class="table-wrap"><table id="runs"></table></div>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

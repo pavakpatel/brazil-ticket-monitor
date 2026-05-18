@@ -1,0 +1,10 @@
+[project]
+name = "brazil-ticket-monitor"
+version = "0.1.0"
+description = "Browser automation monitor for Brazil World Cup 2026 tickets, especially Brazil vs Haiti."
+requires-python = ">=3.9"
+dependencies = ["playwright>=1.40"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
