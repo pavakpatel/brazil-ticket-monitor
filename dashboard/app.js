@@ -1,4 +1,18 @@
 const money = n => n == null ? 'n/a' : '$' + Number(n).toLocaleString(undefined,{maximumFractionDigits:2,minimumFractionDigits:2});
+const ET_OPTIONS = {timeZone:'America/New_York', month:'short', day:'numeric', year:'numeric', hour:'numeric', minute:'2-digit', timeZoneName:'short'};
+const ET_SHORT_OPTIONS = {timeZone:'America/New_York', month:'numeric', day:'numeric', hour:'numeric', minute:'2-digit'};
+function formatET(value){
+  if(!value) return 'unknown';
+  const d = new Date(value);
+  if(Number.isNaN(d.getTime())) return value;
+  return new Intl.DateTimeFormat('en-US', ET_OPTIONS).format(d).replace('EST','ET').replace('EDT','ET');
+}
+function formatChartET(value){
+  if(!value) return '';
+  const d = new Date(value);
+  if(Number.isNaN(d.getTime())) return value;
+  return new Intl.DateTimeFormat('en-US', ET_SHORT_OPTIONS).format(d);
+}
 const SOURCES = [
   {key:'fifa_cat1', label:'FIFA CAT1', color:'#8aa0ff'},
   {key:'fifa_cat2', label:'FIFA CAT2', color:'#a78bfa'},
@@ -13,7 +27,7 @@ async function load(){
   const res = await fetch('../data/dashboard.json?ts=' + Date.now());
   DATA = await res.json();
   const cur = DATA.current || {};
-  document.getElementById('checked').textContent = 'Last checked: ' + (cur.scraped_at_utc || 'unknown') + ' UTC';
+  document.getElementById('checked').textContent = 'Last checked: ' + formatET(cur.scraped_at_utc) + ' (East Coast)';
   const fifa = cur.fifa_haiti || [];
   const cat1 = fifa.find(x=>x.category==='CAT1') || fifa[0] || {};
   const cat2 = fifa.find(x=>x.category==='CAT2') || fifa[1] || {};
@@ -78,7 +92,7 @@ function renderChart(){
   }
   runs.forEach((r,i)=>{
     if(i % Math.ceil(runs.length/6 || 1) !== 0 && i !== runs.length-1) return;
-    const d = new Date(r.scraped_at_utc); const label = (d.getMonth()+1)+'/'+d.getDate()+' '+String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0');
+    const label = formatChartET(r.scraped_at_utc);
     ctx.fillStyle = '#7f8896'; ctx.fillText(label, x(i)-28, H-14);
   });
   active.forEach(s => {
@@ -96,7 +110,7 @@ function renderGames(rows){
 }
 function renderRuns(runs){
   const recent=[...runs].reverse().slice(0,12);
-  document.getElementById('runs').innerHTML = '<thead><tr><th>Checked</th><th>FIFA CAT1</th><th>FIFA CAT2</th><th>Ticketmaster</th><th>SeatGeek</th><th>Vivid</th><th>Issues</th></tr></thead><tbody>' + recent.map(r=>{ const f=r.fifa_haiti||[]; const c1=f.find(x=>x.category==='CAT1')||{}; const c2=f.find(x=>x.category==='CAT2')||{}; return `<tr><td>${r.scraped_at_utc||''}</td><td>${c1.starting_at||''}</td><td>${c2.starting_at||''}</td><td>${money(r.ticketmaster?.lowest_price)}</td><td>${money(r.seatgeek?.lowest_price)}</td><td>${money(r.vivid_seats?.lowest_price)}</td><td class="warn">${(r.errors||[]).join('; ')}</td></tr>` }).join('') + '</tbody>';
+  document.getElementById('runs').innerHTML = '<thead><tr><th>Checked (East Coast)</th><th>FIFA CAT1</th><th>FIFA CAT2</th><th>Ticketmaster</th><th>SeatGeek</th><th>Vivid</th><th>Issues</th></tr></thead><tbody>' + recent.map(r=>{ const f=r.fifa_haiti||[]; const c1=f.find(x=>x.category==='CAT1')||{}; const c2=f.find(x=>x.category==='CAT2')||{}; return `<tr><td>${formatET(r.scraped_at_utc)}</td><td>${c1.starting_at||''}</td><td>${c2.starting_at||''}</td><td>${money(r.ticketmaster?.lowest_price)}</td><td>${money(r.seatgeek?.lowest_price)}</td><td>${money(r.vivid_seats?.lowest_price)}</td><td class="warn">${(r.errors||[]).join('; ')}</td></tr>` }).join('') + '</tbody>';
 }
 window.addEventListener('resize', () => renderChart());
 load().catch(e=>{document.body.insertAdjacentHTML('afterbegin',`<pre class="warn">${e}</pre>`)});
