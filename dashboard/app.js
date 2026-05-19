@@ -35,8 +35,8 @@ async function load(){
   const sg = cur.seatgeek || {};
   const vs = cur.vivid_seats || {};
   document.getElementById('cards').innerHTML = [
-    card('FIFA CAT1 starting', cat1.starting_at || money(cat1.price), `Face ${cat1.face_value || 'n/a'} · last sale ${cat1.last_sale || 'n/a'}`),
-    card('FIFA CAT2 starting', cat2.starting_at || money(cat2.price), `Face ${cat2.face_value || 'n/a'} · last sale ${cat2.last_sale || 'n/a'}`),
+    card('FIFA CAT1 starting', cat1.starting_at || money(cat1.price), `Face ${cat1.face_value || 'n/a'}`),
+    card('FIFA CAT2 starting', cat2.starting_at || money(cat2.price), `Face ${cat2.face_value || 'n/a'}`),
     card('Ticketmaster lowest', money(tm.lowest_price), `${tm.cheapest_seen?.section_row || ''} ${tm.url ? `· <a href="${tm.url}">event</a>` : ''}`),
     card('SeatGeek lowest', money(sg.lowest_price), `${(sg.notes || [])[0] || ''} ${sg.url ? `· <a href="${sg.url}">event</a>` : ''}`),
     card('Vivid Seats all-in', money(vs.lowest_price), `${vs.listing_count ? vs.listing_count + ' listings' : ''}${vs.average_price ? ' · avg ' + money(vs.average_price) : ''} ${vs.url ? `· <a href="${vs.url}">event</a>` : ''}`)
@@ -106,7 +106,7 @@ function renderChart(){
 function renderGames(rows){
   const by={}; rows.forEach(x=>{ const k=x.match+'|'+x.date; if(!by[k] || (x.price && x.price < by[k].price)) by[k]=x; });
   const vals=Object.values(by);
-  document.getElementById('games').innerHTML = '<thead><tr><th>Match</th><th>Date</th><th>Venue</th><th>Cheapest</th><th>Last sale</th></tr></thead><tbody>' + vals.map(x=>`<tr><td>${x.match||''}</td><td>${x.date||''}</td><td>${x.location||''}</td><td>${x.category||''} ${x.starting_at||''}</td><td>${x.last_sale||''}</td></tr>`).join('') + '</tbody>';
+  document.getElementById('games').innerHTML = '<thead><tr><th>Match</th><th>Date</th><th>Venue</th><th>Cheapest</th></tr></thead><tbody>' + vals.map(x=>`<tr><td>${x.match||''}</td><td>${x.date||''}</td><td>${x.location||''}</td><td>${x.category||''} ${x.starting_at||''}</td></tr>`).join('') + '</tbody>';
 }
 function renderRuns(runs){
   const recent=[...runs].reverse().slice(0,12);
