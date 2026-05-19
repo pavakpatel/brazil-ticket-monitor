@@ -28,7 +28,6 @@ def summarize(snap):
             'category': x.get('category',''),
             'starting_at': x.get('starting_at',''),
             'price': money(x.get('price')),
-            'last_sale': x.get('last_sale',''),
             'face_value': x.get('face_value',''),
         })
     tm = snap.get('ticketmaster') or {}
@@ -61,7 +60,10 @@ def summarize(snap):
             'cheapest_seen': vs.get('cheapest_seen') or {},
             'notes': vs.get('notes', []),
         },
-        'all_brazil_fifa': snap.get('all_brazil_fifa', []),
+        'all_brazil_fifa': [
+            {k: v for k, v in item.items() if k not in {'last_sale', 'details'}}
+            for item in snap.get('all_brazil_fifa', [])
+        ],
         'errors': snap.get('errors', []),
     }
 
