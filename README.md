@@ -35,3 +35,7 @@ The scraper writes a timestamped JSON run artifact under `data/runs/` and persis
 Schedule:
 
 A macOS LaunchAgent (`com.pavak.brazil-ticket-monitor`) runs this twice daily at 9 AM and 6 PM local time. It calls `/Users/fdddeveloper/.hermes/scripts/brazil_ticket_monitor.sh`, writes run artifacts, updates `data/dashboard.json`, and sends a local notification.
+
+GitHub Actions:
+
+The repo also has `.github/workflows/update-dashboard.yml`, which runs the scraper on GitHub twice daily and can be run manually from the Actions tab. It rebuilds `data/dashboard.json`, commits any changed dashboard data, and pushes back to `main` so GitHub Pages updates without relying on the local Mac.

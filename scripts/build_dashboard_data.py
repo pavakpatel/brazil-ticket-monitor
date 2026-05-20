@@ -67,14 +67,44 @@ def summarize(snap):
         'errors': snap.get('errors', []),
     }
 
-runs=[]
+def public_item(item):
+    if not item:
+        return None
+    item = dict(item)
+    item['fifa_haiti'] = [
+        {k: v for k, v in dict(row).items() if k != 'last_sale'}
+        for row in item.get('fifa_haiti', [])
+    ]
+    item['all_brazil_fifa'] = [
+        {k: v for k, v in dict(row).items() if k not in {'last_sale', 'details'}}
+        for row in item.get('all_brazil_fifa', [])
+    ]
+    return item
+
+def merge_runs(existing, new):
+    merged = {}
+    for item in existing + new:
+        item = public_item(item)
+        if not item:
+            continue
+        key = item.get('scraped_at_utc') or item.get('file')
+        if not key:
+            continue
+        merged[key] = item
+    return sorted(
+        merged.values(),
+        key=lambda item: item.get('scraped_at_utc') or '',
+    )[-50:]
+
+existing = load(OUT) or {}
+runs = []
 for p in sorted(RUNS.glob('run-*.json')):
     s=load(p)
     item=summarize(s)
     if item:
         item['file']=str(p.relative_to(ROOT))
         runs.append(item)
-current=summarize(load(DATA/'state.json'))
-out={'current': current, 'runs': runs[-50:]}
+current=public_item(summarize(load(DATA/'state.json'))) or public_item(existing.get('current'))
+out={'current': current, 'runs': merge_runs(existing.get('runs', []), runs)}
 OUT.write_text(json.dumps(out, indent=2), encoding='utf-8')
 print(OUT)
