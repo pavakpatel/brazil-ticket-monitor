@@ -1,11 +1,11 @@
 {
   "current": {
-    "scraped_at_utc": "2026-05-19T16:47:11+00:00",
+    "scraped_at_utc": "2026-05-20T04:04:17+00:00",
     "fifa_haiti": [
       {
         "category": "CAT1",
-        "starting_at": "$999.00",
-        "price": 999.0,
+        "starting_at": "$990.00",
+        "price": 990.0,
         "face_value": "$445.00"
       },
       {
@@ -16,16 +16,16 @@
       }
     ],
     "ticketmaster": {
-      "lowest_price": 1071.0,
+      "lowest_price": 1196.69,
       "event_title": "World Cup: Match 29 Group C - Brazil vs Haiti",
       "date": "Fri \u2022 Jun 19, 2026 \u2022 9:00 PM",
       "venue": "Lincoln Financial Field, Philadelphia, PA",
       "url": "https://www.ticketmaster.com/event/Z7r9jZ1A743ff",
       "cheapest_seen": {
-        "section_row": "Sec 220 \u2022 Row 4",
+        "section_row": "Sec 239 \u2022 Row 13",
         "type": "Resale Ticket",
-        "price": 1071.0,
-        "price_text": "$1,071.00"
+        "price": 1196.69,
+        "price_text": "$1,196.69"
       }
     },
     "seatgeek": {
@@ -37,16 +37,16 @@
       ]
     },
     "vivid_seats": {
-      "lowest_price": 854.0,
-      "average_price": 1153.0,
-      "listing_count": 450,
+      "lowest_price": 929.0,
+      "average_price": 1157.0,
+      "listing_count": 438,
       "event_title": "Brazil vs Haiti - World Cup - Match 29 (Group C)",
       "url": "https://www.vividseats.com/world-cup-soccer-tickets-lincoln-financial-field-6-19-2026--sports-soccer/production/5080479",
       "cheapest_seen": {
-        "section": "233",
-        "row": "Row 4 | 2\u20134 tickets",
-        "price": 854.0,
-        "price_text": "$854"
+        "section": "211",
+        "row": "Row 21 | 2\u20134 tickets",
+        "price": 929.0,
+        "price_text": "$929"
       },
       "notes": []
     },
@@ -59,9 +59,9 @@
         "round": "Group C",
         "category": "CAT1",
         "face_value": "$620.00",
-        "volume": "$189,375 125 sales",
-        "starting_at": "$1,390.00",
-        "price": 1390.0,
+        "volume": "$190,765 126 sales",
+        "starting_at": "$1,425.00",
+        "price": 1425.0,
         "url": "https://www.fifacollect.info/tickets/world-cup-2026/listings?team=brazil"
       },
       {
@@ -73,8 +73,8 @@
         "category": "CAT2",
         "face_value": "$500.00",
         "volume": "$43,114 32 sales",
-        "starting_at": "$1,499.00",
-        "price": 1499.0,
+        "starting_at": "$1,450.00",
+        "price": 1450.0,
         "url": "https://www.fifacollect.info/tickets/world-cup-2026/listings?team=brazil"
       },
       {
@@ -85,9 +85,9 @@
         "round": "Group C",
         "category": "CAT1",
         "face_value": "$445.00",
-        "volume": "$117,369 120 sales",
-        "starting_at": "$999.00",
-        "price": 999.0,
+        "volume": "$120,366 123 sales",
+        "starting_at": "$990.00",
+        "price": 990.0,
         "url": "https://www.fifacollect.info/tickets/world-cup-2026/listings?team=brazil"
       },
       {
@@ -111,9 +111,9 @@
         "round": "Group C",
         "category": "CAT1",
         "face_value": "$445.00",
-        "volume": "$292,199 194 sales",
-        "starting_at": "$1,680.00",
-        "price": 1680.0,
+        "volume": "$307,407 203 sales",
+        "starting_at": "$1,799.00",
+        "price": 1799.0,
         "url": "https://www.fifacollect.info/tickets/world-cup-2026/listings?team=brazil"
       },
       {
@@ -124,7 +124,7 @@
         "round": "Group C",
         "category": "CAT2",
         "face_value": "$360.00",
-        "volume": "$60,029 47 sales",
+        "volume": "$64,979 50 sales",
         "starting_at": "$1,650.00",
         "price": 1650.0,
         "url": "https://www.fifacollect.info/tickets/world-cup-2026/listings?team=brazil"
@@ -2079,6 +2079,274 @@
       ],
       "errors": [],
       "file": "data/runs/run-20260519T164840Z.json"
+    },
+    {
+      "scraped_at_utc": "2026-05-19T22:00:01+00:00",
+      "fifa_haiti": [
+        {
+          "category": "CAT1",
+          "starting_at": "$1,000.00",
+          "price": 1000.0,
+          "face_value": "$445.00"
+        },
+        {
+          "category": "CAT2",
+          "starting_at": "$1,268.00",
+          "price": 1268.0,
+          "face_value": "$360.00"
+        }
+      ],
+      "ticketmaster": {
+        "lowest_price": 1071.0,
+        "event_title": "World Cup: Match 29 Group C - Brazil vs Haiti",
+        "date": "Fri \u2022 Jun 19, 2026 \u2022 9:00 PM",
+        "venue": "Lincoln Financial Field, Philadelphia, PA",
+        "url": "https://www.ticketmaster.com/event/Z7r9jZ1A743ff",
+        "cheapest_seen": {
+          "section_row": "Sec 220 \u2022 Row 4",
+          "type": "Resale Ticket",
+          "price": 1071.0,
+          "price_text": "$1,071.00"
+        }
+      },
+      "seatgeek": {
+        "lowest_price": null,
+        "event_title": "Brazil vs Haiti - World Cup",
+        "url": "https://seatgeek.com/fifa-world-cup-tickets/international-soccer/2026-06-19-9-pm/17213260",
+        "notes": [
+          "SeatGeek page loaded, but no validated visible price was found."
+        ]
+      },
+      "vivid_seats": {
+        "lowest_price": 864.0,
+        "average_price": 1157.0,
+        "listing_count": 446,
+        "event_title": "Brazil vs Haiti - World Cup - Match 29 (Group C)",
+        "url": "https://www.vividseats.com/world-cup-soccer-tickets-lincoln-financial-field-6-19-2026--sports-soccer/production/5080479",
+        "cheapest_seen": {
+          "section": "219",
+          "row": "Row 28 | 2\u20134 tickets",
+          "price": 929.0,
+          "price_text": "$929"
+        },
+        "notes": []
+      },
+      "all_brazil_fifa": [
+        {
+          "source": "fifa_collect_info",
+          "match": "M7 Brazil vs. Morocco",
+          "date": "June 13, 2026",
+          "location": "New York New Jersey MetLife Stadium",
+          "round": "Group C",
+          "category": "CAT1",
+          "face_value": "$620.00",
+          "volume": "$189,375 125 sales",
+          "starting_at": "$1,390.00",
+          "price": 1390.0,
+          "url": "https://www.fifacollect.info/tickets/world-cup-2026/listings?team=brazil"
+        },
+        {
+          "source": "fifa_collect_info",
+          "match": "M7 Brazil vs. Morocco",
+          "date": "June 13, 2026",
+          "location": "New York New JerseyMetLife Stadium",
+          "round": "Group C",
+          "category": "CAT2",
+          "face_value": "$500.00",
+          "volume": "$43,114 32 sales",
+          "starting_at": "$1,499.00",
+          "price": 1499.0,
+          "url": "https://www.fifacollect.info/tickets/world-cup-2026/listings?team=brazil"
+        },
+        {
+          "source": "fifa_collect_info",
+          "match": "M29 Brazil vs. Haiti",
+          "date": "June 19, 2026",
+          "location": "Philadelphia Lincoln Financial Field",
+          "round": "Group C",
+          "category": "CAT1",
+          "face_value": "$445.00",
+          "volume": "$120,366 123 sales",
+          "starting_at": "$1,000.00",
+          "price": 1000.0,
+          "url": "https://www.fifacollect.info/tickets/world-cup-2026/listings?team=brazil"
+        },
+        {
+          "source": "fifa_collect_info",
+          "match": "M29 Brazil vs. Haiti",
+          "date": "June 19, 2026",
+          "location": "PhiladelphiaLincoln Financial Field",
+          "round": "Group C",
+          "category": "CAT2",
+          "face_value": "$360.00",
+          "volume": "$32,484 36 sales",
+          "starting_at": "$1,268.00",
+          "price": 1268.0,
+          "url": "https://www.fifacollect.info/tickets/world-cup-2026/listings?team=brazil"
+        },
+        {
+          "source": "fifa_collect_info",
+          "match": "M49 Scotland vs. Brazil",
+          "date": "June 24, 2026",
+          "location": "Miami Hard Rock Stadium",
+          "round": "Group C",
+          "category": "CAT1",
+          "face_value": "$445.00",
+          "volume": "$302,018 200 sales",
+          "starting_at": "$1,770.00",
+          "price": 1770.0,
+          "url": "https://www.fifacollect.info/tickets/world-cup-2026/listings?team=brazil"
+        },
+        {
+          "source": "fifa_collect_info",
+          "match": "M49 Scotland vs. Brazil",
+          "date": "June 24, 2026",
+          "location": "MiamiHard Rock Stadium",
+          "round": "Group C",
+          "category": "CAT2",
+          "face_value": "$360.00",
+          "volume": "$64,979 50 sales",
+          "starting_at": "$1,650.00",
+          "price": 1650.0,
+          "url": "https://www.fifacollect.info/tickets/world-cup-2026/listings?team=brazil"
+        }
+      ],
+      "errors": [],
+      "file": "data/runs/run-20260519T220135Z.json"
+    },
+    {
+      "scraped_at_utc": "2026-05-20T04:04:17+00:00",
+      "fifa_haiti": [
+        {
+          "category": "CAT1",
+          "starting_at": "$990.00",
+          "price": 990.0,
+          "face_value": "$445.00"
+        },
+        {
+          "category": "CAT2",
+          "starting_at": "$1,268.00",
+          "price": 1268.0,
+          "face_value": "$360.00"
+        }
+      ],
+      "ticketmaster": {
+        "lowest_price": 1196.69,
+        "event_title": "World Cup: Match 29 Group C - Brazil vs Haiti",
+        "date": "Fri \u2022 Jun 19, 2026 \u2022 9:00 PM",
+        "venue": "Lincoln Financial Field, Philadelphia, PA",
+        "url": "https://www.ticketmaster.com/event/Z7r9jZ1A743ff",
+        "cheapest_seen": {
+          "section_row": "Sec 239 \u2022 Row 13",
+          "type": "Resale Ticket",
+          "price": 1196.69,
+          "price_text": "$1,196.69"
+        }
+      },
+      "seatgeek": {
+        "lowest_price": null,
+        "event_title": "Brazil vs Haiti - World Cup",
+        "url": "https://seatgeek.com/fifa-world-cup-tickets/international-soccer/2026-06-19-9-pm/17213260",
+        "notes": [
+          "SeatGeek page loaded, but no validated visible price was found."
+        ]
+      },
+      "vivid_seats": {
+        "lowest_price": 929.0,
+        "average_price": 1157.0,
+        "listing_count": 438,
+        "event_title": "Brazil vs Haiti - World Cup - Match 29 (Group C)",
+        "url": "https://www.vividseats.com/world-cup-soccer-tickets-lincoln-financial-field-6-19-2026--sports-soccer/production/5080479",
+        "cheapest_seen": {
+          "section": "211",
+          "row": "Row 21 | 2\u20134 tickets",
+          "price": 929.0,
+          "price_text": "$929"
+        },
+        "notes": []
+      },
+      "all_brazil_fifa": [
+        {
+          "source": "fifa_collect_info",
+          "match": "M7 Brazil vs. Morocco",
+          "date": "June 13, 2026",
+          "location": "New York New Jersey MetLife Stadium",
+          "round": "Group C",
+          "category": "CAT1",
+          "face_value": "$620.00",
+          "volume": "$190,765 126 sales",
+          "starting_at": "$1,425.00",
+          "price": 1425.0,
+          "url": "https://www.fifacollect.info/tickets/world-cup-2026/listings?team=brazil"
+        },
+        {
+          "source": "fifa_collect_info",
+          "match": "M7 Brazil vs. Morocco",
+          "date": "June 13, 2026",
+          "location": "New York New JerseyMetLife Stadium",
+          "round": "Group C",
+          "category": "CAT2",
+          "face_value": "$500.00",
+          "volume": "$43,114 32 sales",
+          "starting_at": "$1,450.00",
+          "price": 1450.0,
+          "url": "https://www.fifacollect.info/tickets/world-cup-2026/listings?team=brazil"
+        },
+        {
+          "source": "fifa_collect_info",
+          "match": "M29 Brazil vs. Haiti",
+          "date": "June 19, 2026",
+          "location": "Philadelphia Lincoln Financial Field",
+          "round": "Group C",
+          "category": "CAT1",
+          "face_value": "$445.00",
+          "volume": "$120,366 123 sales",
+          "starting_at": "$990.00",
+          "price": 990.0,
+          "url": "https://www.fifacollect.info/tickets/world-cup-2026/listings?team=brazil"
+        },
+        {
+          "source": "fifa_collect_info",
+          "match": "M29 Brazil vs. Haiti",
+          "date": "June 19, 2026",
+          "location": "PhiladelphiaLincoln Financial Field",
+          "round": "Group C",
+          "category": "CAT2",
+          "face_value": "$360.00",
+          "volume": "$32,484 36 sales",
+          "starting_at": "$1,268.00",
+          "price": 1268.0,
+          "url": "https://www.fifacollect.info/tickets/world-cup-2026/listings?team=brazil"
+        },
+        {
+          "source": "fifa_collect_info",
+          "match": "M49 Scotland vs. Brazil",
+          "date": "June 24, 2026",
+          "location": "Miami Hard Rock Stadium",
+          "round": "Group C",
+          "category": "CAT1",
+          "face_value": "$445.00",
+          "volume": "$307,407 203 sales",
+          "starting_at": "$1,799.00",
+          "price": 1799.0,
+          "url": "https://www.fifacollect.info/tickets/world-cup-2026/listings?team=brazil"
+        },
+        {
+          "source": "fifa_collect_info",
+          "match": "M49 Scotland vs. Brazil",
+          "date": "June 24, 2026",
+          "location": "MiamiHard Rock Stadium",
+          "round": "Group C",
+          "category": "CAT2",
+          "face_value": "$360.00",
+          "volume": "$64,979 50 sales",
+          "starting_at": "$1,650.00",
+          "price": 1650.0,
+          "url": "https://www.fifacollect.info/tickets/world-cup-2026/listings?team=brazil"
+        }
+      ],
+      "errors": [],
+      "file": "data/runs/run-20260520T040507Z.json"
     }
   ]
 }
