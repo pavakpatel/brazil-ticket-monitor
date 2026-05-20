@@ -19,6 +19,16 @@ def money(v):
     try: return float(v)
     except Exception: return None
 
+def dedupe(items):
+    seen = set()
+    out = []
+    for item in items or []:
+        if item in seen:
+            continue
+        seen.add(item)
+        out.append(item)
+    return out
+
 def summarize(snap):
     if not snap: return None
     focus = snap.get('focus', {}).get('fifa_collect_info', []) or []
@@ -79,6 +89,35 @@ def public_item(item):
         {k: v for k, v in dict(row).items() if k not in {'last_sale', 'details'}}
         for row in item.get('all_brazil_fifa', [])
     ]
+    for source in ['ticketmaster', 'seatgeek', 'vivid_seats']:
+        if isinstance(item.get(source), dict):
+            item[source] = dict(item[source])
+            item[source]['notes'] = dedupe(item[source].get('notes', []))
+    return item
+
+def has_source_value(item, source):
+    value = (item or {}).get(source) or {}
+    if source in {'ticketmaster', 'seatgeek', 'vivid_seats'}:
+        return value.get('lowest_price') is not None
+    if source == 'fifa_haiti':
+        return bool(value)
+    return bool(value)
+
+def carry_forward_sources(item, previous):
+    if not item or not previous:
+        return item
+    item = dict(item)
+    for source in ['fifa_haiti', 'ticketmaster', 'seatgeek', 'vivid_seats']:
+        if not has_source_value(item, source) and has_source_value(previous, source):
+            carried = previous.get(source)
+            if isinstance(carried, dict):
+                carried = dict(carried)
+                notes = dedupe(carried.get('notes', []))
+                note = 'Carried forward from the prior valid scrape because this source returned no validated price in the latest run.'
+                if note not in notes:
+                    notes.append(note)
+                carried['notes'] = notes
+            item[source] = carried
     return item
 
 def merge_runs(existing, new):
@@ -91,10 +130,26 @@ def merge_runs(existing, new):
         if not key:
             continue
         merged[key] = item
-    return sorted(
+    ordered = sorted(
         merged.values(),
         key=lambda item: item.get('scraped_at_utc') or '',
-    )[-50:]
+    )
+    carried = []
+    previous = None
+    for item in ordered:
+        item = carry_forward_sources(item, previous)
+        carried.append(item)
+        previous = item
+    return carried[-50:]
+
+def newest(items):
+    items = [item for item in items if item]
+    if not items:
+        return None
+    return max(
+        enumerate(items),
+        key=lambda indexed: ((indexed[1].get('scraped_at_utc') or ''), indexed[0]),
+    )[1]
 
 existing = load(OUT) or {}
 runs = []
@@ -104,7 +159,14 @@ for p in sorted(RUNS.glob('run-*.json')):
     if item:
         item['file']=str(p.relative_to(ROOT))
         runs.append(item)
-current=public_item(summarize(load(DATA/'state.json'))) or public_item(existing.get('current'))
-out={'current': current, 'runs': merge_runs(existing.get('runs', []), runs)}
+merged_runs = merge_runs(existing.get('runs', []), runs)
+current=newest([
+    public_item(summarize(load(DATA/'state.json'))),
+    public_item(existing.get('current')),
+    merged_runs[-1] if merged_runs else None,
+])
+if merged_runs:
+    current = carry_forward_sources(current, merged_runs[-2] if len(merged_runs) > 1 else merged_runs[-1])
+out={'current': current, 'runs': merged_runs}
 OUT.write_text(json.dumps(out, indent=2), encoding='utf-8')
 print(OUT)
